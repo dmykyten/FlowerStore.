@@ -1,4 +1,4 @@
-package main.java.flower.store;
+package flower.store;
 
 public class Chalomile extends Flower{
     public Chalomile(){

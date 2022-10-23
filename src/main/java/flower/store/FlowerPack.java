@@ -1,15 +1,17 @@
-package main.java.flower.store;
+package flower.store;
 
 import lombok.Getter;
 import lombok.Setter;
 
-public class FlowerPack<T extends Flower> {
+public class FlowerPack {
     @Getter @Setter
-    private T flower = null;
+    private Flower flower = null;
     @Getter @Setter
     private int quantity = 0;
 
     double getPrice(){
-        return quantity * flower.getPrice();
+        if(flower != null)
+            return quantity * flower.getPrice();
+        return 0;
     }
 }

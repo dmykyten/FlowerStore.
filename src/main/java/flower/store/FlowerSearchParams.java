@@ -1,10 +1,11 @@
-package main.java.flower.store;
+package flower.store;
 
 import lombok.Getter;
 import lombok.Setter;
 
 
 class FlowerSearchParams{
+    @Getter @Setter
     private FlowerColor color = null;
     @Getter @Setter
     private FlowerType flowerType = null;
@@ -16,11 +17,4 @@ class FlowerSearchParams{
     private double minSepalLength = 0;
     @Getter @Setter
     private double maxSepalLength = Double.MAX_VALUE;
-
-    public String getColor() {
-        return color.toString();
-    }
-    public void setColor(FlowerColor color){
-        this.color = color;
-    }
 }

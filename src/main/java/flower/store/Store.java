@@ -1,4 +1,4 @@
-package main.java.flower.store;
+package flower.store;
 
 import lombok.Setter;
 
@@ -10,11 +10,15 @@ public class Store {
     List<FlowerBucket> flowerBuckets = null;
 
     private boolean compare(Flower flower, FlowerSearchParams params) {
-        if (!flower.getColor().equals(params.getColor()))
-            return false;
+        if(flower.getColor() != null) {
+            if (!flower.getColor().equals(params.getColor().toString()))
+                return false;
+        }
 
-        if (flower.getFlowerType() != params.getFlowerType())
-            return false;
+        if(flower.getFlowerType() != null) {
+            if (flower.getFlowerType() != params.getFlowerType())
+                return false;
+        }
 
         if (flower.getPrice() > params.getMaxPrice())
             return false;
@@ -28,16 +32,15 @@ public class Store {
         return params.getMinSepalLength() <= flower.getSepalLength();
     }
 
-    public List<FlowerPack<? extends Flower>> search(FlowerSearchParams params) {
-        List<FlowerPack<? extends Flower>> packs = new ArrayList<>();
+    public List<FlowerPack> search(FlowerSearchParams params) {
+        List<FlowerPack> packs = new ArrayList<>();
 
         for (FlowerBucket bucket : flowerBuckets) {
-            for (FlowerPack<? extends Flower> pack : bucket.getFlowerPacks()) {
+            for (FlowerPack pack : bucket.getFlowerPacks()) {
                 Flower flower = pack.getFlower();
                 if (pack.getQuantity() != 0 && compare(flower, params)) {
                     packs.add(pack);
                 }
-
             }
         }
         return packs;
