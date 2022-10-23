@@ -1,5 +1,6 @@
-package flower.store;
+package test.java.flower.store;
 
+import main.java.flower.store.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
