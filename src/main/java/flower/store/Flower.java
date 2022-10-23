@@ -1,21 +1,24 @@
-package flower.store;
+package main.java.flower.store;
 
 import lombok.Getter;
 import lombok.Setter;
 
-
-
 @Setter
 public class Flower {
     @Getter
-    private double sepalLength;
-    private FlowerColor color;
+    private double sepalLength = 0;
+    private FlowerColor color = null;
     @Getter
-    private double price;
+    private double price = 0;
     @Getter
-    private FlowerType flowerType;
+    private FlowerType flowerType = null;
 
     public String getColor() {
         return color.toString();
+    }
+    public void setColor(FlowerColor color){
+        if(this.color == null){
+            this.color = color;
+        }
     }
 }
